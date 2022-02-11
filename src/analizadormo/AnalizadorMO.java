@@ -32,20 +32,18 @@ public class AnalizadorMO {
         nombres_algoritmos = new ArrayList();
         //FileReader fr_main=new FileReader(args[0]);
         //FileReader fr_main = new FileReader("Prueba.txt");
-         FileReader fr_main = new FileReader("Prueba_2.txt");
-        
+        FileReader fr_main = new FileReader("Prueba_2.txt");
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         //algoritmos=Integer.valueOf(args[1]);
         algoritmos = 2;
         //algoritmos = 5;
 
-       /*nombres_algoritmos.add("Hybrid Q-Learning");
+        /*nombres_algoritmos.add("Hybrid Q-Learning");
         nombres_algoritmos.add("Hybrid Sarsa");
         nombres_algoritmos.add("Hybrid Sarsa-Lambda");
         nombres_algoritmos.add("DC-NSGA-II");
         nombres_algoritmos.add("Dif Evol");*/
-       
         nombres_algoritmos.add("MOEAD_RSIM");
         nombres_algoritmos.add("MOEAD");
 
@@ -172,52 +170,52 @@ public class AnalizadorMO {
                     double valor = 0;
                     valor = InvertedGenerationalDistance.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
                     temp_igd.add(valor);
-                    
+
                     valor = GeneralizedSpread.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
                     temp_gs.add(valor);
-                    
+
                     valor = HypervolumenWFG.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
                     System.out.println("HV " + valor);
                     temp_hv.add(valor);
-                    
+
                     valor = Epsilon.Compute_additive(frente_real, AnalizadorMO.datos.get(x).get(j));
                     //valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j));
                     temp_epsilon.add(valor);
-                    
+
                     valor = IGDplus.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
                     temp_igd_plus.add(valor);
-                    
+
                     valor = OverallSpread.Compute(AnalizadorMO.datos.get(x).get(j));
                     temp_OS.add(valor);
-                    
+
                     System.out.println("Procesado " + problema + " Algoritmo " + x + " Iteracion " + j + " ");
                 }
-                
+
                 IGD_mean.add(MedianaVarianza.Mediana(temp_igd));
                 IGD_desvest.add(MedianaVarianza.IQR(temp_igd));
                 EscrituraArchivo.Escribe_Archivo(temp_igd, problema + "_IGD_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_igd, AnalizadorMO.datos_originales.get(x), "BEST_IGD_" + nombres_algoritmos.get(x));
-                
+
                 IGD_plus_mean.add(MedianaVarianza.Mediana(temp_igd_plus));
                 IGD_plus_desvest.add(MedianaVarianza.IQR(temp_igd_plus));
                 EscrituraArchivo.Escribe_Archivo(temp_igd_plus, problema + "_IGDPlus_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_igd_plus, AnalizadorMO.datos_originales.get(x), "BEST_IGDPlus_" + nombres_algoritmos.get(x));
-                
+
                 GS_mean.add(MedianaVarianza.Mediana(temp_gs));
                 GS_desvest.add(MedianaVarianza.IQR(temp_gs));
                 EscrituraArchivo.Escribe_Archivo(temp_gs, problema + "_GS_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_gs, AnalizadorMO.datos_originales.get(x), "BEST_GS_" + nombres_algoritmos.get(x));
-                
+
                 HV_mean.add(MedianaVarianza.Mediana(temp_hv));
                 HV_desvest.add(MedianaVarianza.IQR(temp_hv));
                 EscrituraArchivo.Escribe_Archivo(temp_hv, problema + "_HV_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MAX(temp_hv, AnalizadorMO.datos_originales.get(x), "BEST_HV_" + nombres_algoritmos.get(x));
-                
+
                 OS_mean.add(MedianaVarianza.Mediana(temp_OS));
                 OS_desvest.add(MedianaVarianza.IQR(temp_OS));
                 EscrituraArchivo.Escribe_Archivo(temp_OS, problema + "_OS_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MAX(temp_OS, AnalizadorMO.datos_originales.get(x), "BEST_OS_" + nombres_algoritmos.get(x));
-                
+
                 Epsilon_mean.add(MedianaVarianza.Mediana(temp_epsilon));
                 Epsilon_desvest.add(MedianaVarianza.IQR(temp_epsilon));
                 EscrituraArchivo.Escribe_Archivo(temp_epsilon, problema + "_Epsilon_Alg" + x);
