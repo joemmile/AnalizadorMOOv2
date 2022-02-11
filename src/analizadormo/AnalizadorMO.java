@@ -11,6 +11,7 @@ package analizadormo;
  */
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class AnalizadorMO {
@@ -36,13 +37,17 @@ public class AnalizadorMO {
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         //algoritmos=Integer.valueOf(args[1]);
-        algoritmos = 5;
+        algoritmos = 2;
+        //algoritmos = 5;
 
-        nombres_algoritmos.add("Hybrid Q-Learning");
+       /*nombres_algoritmos.add("Hybrid Q-Learning");
         nombres_algoritmos.add("Hybrid Sarsa");
         nombres_algoritmos.add("Hybrid Sarsa-Lambda");
         nombres_algoritmos.add("DC-NSGA-II");
-        nombres_algoritmos.add("Dif Evol");
+        nombres_algoritmos.add("Dif Evol");*/
+       
+        nombres_algoritmos.add("MOEAD_RSIM");
+        nombres_algoritmos.add("MOEAD");
 
         Latex.Inicializa_latex_igd();
         Latex.Inicializa_latex_GS();
@@ -109,7 +114,7 @@ public class AnalizadorMO {
                             //Comparador.agrega(frente_real, temp);//linea agregada para filtrado de soluciones
                         }
                     }
-
+                    System.out.println(Arrays.toString(frente_aproximado.get(0)));
                     bf2.close();
                     fr2.close();
                     datos_alg.add(frente_aproximado);

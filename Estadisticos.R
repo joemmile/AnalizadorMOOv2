@@ -14,5 +14,5 @@ write("\\caption{p-values}", "salida.tex", append=TRUE)
 write("\\centering", "salida.tex", append=TRUE)
 write("\\begin{tabular}{", "salida.tex", append=TRUE)
 cadena<-""
-write("|c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c||c|}\\hline","salida.tex",append=TRUE)
-write("Indicador & 1-2 & 1-3 & 1-4 & 1-5 & 2-3 & 2-4 & 2-5 & 3-4 & 3-5 & 4-5\\\\\\hline","salida.tex",append=TRUE)
+write("|c||c||c||c|}\\hline","salida.tex",append=TRUE)
+write("Indicador & 1-2\\\\\\hline","salida.tex",append=TRUE)
