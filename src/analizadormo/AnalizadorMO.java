@@ -15,10 +15,6 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class AnalizadorMO {
-
-    /**
-     * @param args the command line arguments
-     */
     static ArrayList<ArrayList<ArrayList<double[]>>> datos;
     static ArrayList<ArrayList<ArrayList<double[]>>> datos_originales;
     static ArrayList<double[]> frente_real;
