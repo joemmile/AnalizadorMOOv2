@@ -19,6 +19,7 @@ public class Estadisticos {
         FileOutputStream fos = new FileOutputStream("Estadisticos.R", false);
         PrintStream ps = new PrintStream(fos);
         ps.println("library(PMCMR)");
+        ps.println("library(PMCMRplus)");
         ps.println("write(\"\\\\documentclass{article}\", \"salida.tex\", append=FALSE)");
         ps.println("write(\"\\\\title{Pruebas estad\'isticas}\", \"salida.tex\", append=TRUE)");
         ps.println("write(\"\\\\usepackage{colortbl}\", \"salida.tex\", append=TRUE)");
@@ -133,6 +134,7 @@ public class Estadisticos {
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
                 ps.println("pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                //ps.println("pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueIGD,\"\\\\\\\\\")");
 
