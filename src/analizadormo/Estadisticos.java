@@ -174,7 +174,6 @@ public class Estadisticos {
                 } else {
                     ps.println("cadena <-paste(cadena,pvalueIGDplus,\"&\")");
                 }
-
             }
 
         }
