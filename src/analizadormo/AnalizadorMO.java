@@ -28,7 +28,7 @@ public class AnalizadorMO {
         nombres_algoritmos = new ArrayList();
         //FileReader fr_main=new FileReader(args[0]);
         //FileReader fr_main = new FileReader("Prueba.txt");
-        FileReader fr_main = new FileReader("Prueba_2.txt");
+        FileReader fr_main = new FileReader("Prueba_RSIM.txt");
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         //algoritmos=Integer.valueOf(args[1]);
@@ -165,9 +165,11 @@ public class AnalizadorMO {
 
                     double valor = 0;
                     valor = InvertedGenerationalDistance.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
+                    System.out.println("IGD " + valor);
                     temp_igd.add(valor);
 
                     valor = GeneralizedSpread.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
+                    System.out.println("GS " + valor);
                     temp_gs.add(valor);
 
                     valor = HypervolumenWFG.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
@@ -176,12 +178,15 @@ public class AnalizadorMO {
 
                     valor = Epsilon.Compute_additive(frente_real, AnalizadorMO.datos.get(x).get(j));
                     //valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j));
+                    System.out.println("Epsilon " + valor);
                     temp_epsilon.add(valor);
 
                     valor = IGDplus.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
+                    System.out.println("IGD+ " + valor);
                     temp_igd_plus.add(valor);
 
                     valor = OverallSpread.Compute(AnalizadorMO.datos.get(x).get(j));
+                    System.out.println("OS " + valor);
                     temp_OS.add(valor);
 
                     System.out.println("Procesado " + problema + " Algoritmo " + x + " Iteracion " + j + " ");
