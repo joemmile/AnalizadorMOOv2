@@ -39,7 +39,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ1-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -48,7 +48,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ1-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -57,7 +57,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ1-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -66,7 +66,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ1-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -75,7 +75,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ1-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -104,7 +104,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ2-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -113,7 +113,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ2-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -122,7 +122,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ2-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -131,7 +131,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ2-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -140,7 +140,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ2-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -169,7 +169,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ3-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -178,7 +178,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ3-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -187,7 +187,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ3-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -196,7 +196,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ3-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -205,7 +205,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ3-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -234,7 +234,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ4-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -243,7 +243,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ4-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -252,7 +252,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ4-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -261,7 +261,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ4-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -270,7 +270,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ4-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -299,7 +299,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ5-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -308,7 +308,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ5-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -317,7 +317,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ5-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -326,7 +326,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ5-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -335,7 +335,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ5-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -364,7 +364,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ6-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -373,7 +373,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ6-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -382,7 +382,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ6-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -391,7 +391,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ6-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -400,7 +400,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ6-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -429,7 +429,7 @@ pvalueHV <- kruskal.test(Datos_hv)$p.value
 pvalueEpsilon <- kruskal.test(Datos_Epsilon)$p.value
 cadena<-"N03-DTLZ7-IGD &"
 if(pvalueIGD<0.05){
-pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))["1-2"]
+pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))["1-2"]
 cadena <-paste(cadena,pvalueIGD,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -438,7 +438,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ7-IGD+ &"
 if(pvalueIGDplus<0.05){
-pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))["1-2"]
+pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))["1-2"]
 cadena <-paste(cadena,pvalueIGDplus,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -447,7 +447,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ7-GS &"
 if(pvalueGS<0.05){
-pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))["1-2"]
+pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))["1-2"]
 cadena <-paste(cadena,pvalueGS,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -456,7 +456,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ7-HV &"
 if(pvalueHV<0.05){
-pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))["1-2"]
+pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))["1-2"]
 cadena <-paste(cadena,pvalueHV,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{
@@ -465,7 +465,7 @@ write(cadena, "salida.tex", append=TRUE)}
 write("\\hline","salida.tex",append=TRUE)
 cadena<-"N03-DTLZ7-Epsilon &"
 if(pvalueEpsilon<0.05){
-pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))["1-2"]
+pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))["1-2"]
 cadena <-paste(cadena,pvalueEpsilon,"\\\\")
 write(cadena, "salida.tex", append=TRUE)
 }else{

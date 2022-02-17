@@ -201,8 +201,8 @@ public class Estadisticos {
         ps.println("if(pvalueGS<0.05){"); //<0.05
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
-                ps.println("pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
-                 ps.println("pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                //ps.println("pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                ps.println("pvalueGS <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_gs))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueGS,\"\\\\\\\\\")");
 
@@ -235,7 +235,8 @@ public class Estadisticos {
         ps.println("if(pvalueHV<0.05){"); //<0.05
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
-                ps.println("pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                //ps.println("pvalueHV <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_hv))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                ps.println("pvalueHV <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_hv))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueHV,\"\\\\\\\\\")");
 
@@ -268,7 +269,8 @@ public class Estadisticos {
         ps.println("if(pvalueEpsilon<0.05){"); //<0.05
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
-                ps.println("pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                //ps.println("pvalueEpsilon <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_Epsilon))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                ps.println("pvalueEpsilon <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_Epsilon))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueEpsilon,\"\\\\\\\\\")");
 
