@@ -66,15 +66,16 @@ public class Estadisticos {
     public static void Imprime_scripts_R(String problema) throws IOException {
         FileOutputStream fos = new FileOutputStream("Estadisticos.R", true);
         PrintStream ps = new PrintStream(fos);
+        String diagonal = "/";
         //EMPIEZA LA TABLA Y EL USO DE LOS DATOS EN R
         //Lee todos los datos en memoria :p
         File miDir = new File(".");
         for (int x = 0; x < AnalizadorMO.algoritmos; x++) {
-            ps.println("datosAlg_igd" + x + "<-read.table(\"" + miDir.getCanonicalPath() + "/data/" + problema + "/" + problema + "_IGD_Alg" + x + "\")");
-            ps.println("datosAlg_igdplus" + x + "<-read.table(\"" + miDir.getCanonicalPath() + "/data/" + problema + "/" + problema + "_IGDPlus_Alg" + x + "\")");
-            ps.println("datosAlg_gs" + x + "<-read.table(\"" + miDir.getCanonicalPath() + "/data/" + problema + "/" + problema + "_GS_Alg" + x + "\")");
-            ps.println("datosAlg_hv" + x + "<-read.table(\"" + miDir.getCanonicalPath() + "/data/" + problema + "/" + problema + "_HV_Alg" + x + "\")");
-            ps.println("datosAlg_epsilon" + x + "<-read.table(\"" + miDir.getCanonicalPath() + "/data/" + problema + "/" + problema + "_Epsilon_Alg" + x + "\")");
+            ps.println("datosAlg_igd" + x + "<-read.table(\"" + miDir.getCanonicalPath().replace("\\", "/") + "/data/" + problema + "/" + problema + "_IGD_Alg" + x + "\")");
+            ps.println("datosAlg_igdplus" + x + "<-read.table(\"" + miDir.getCanonicalPath().replace("\\", "/") + "/data/" + problema + "/" + problema + "_IGDPlus_Alg" + x + "\")");
+            ps.println("datosAlg_gs" + x + "<-read.table(\"" + miDir.getCanonicalPath().replace("\\", "/") + "/data/" + problema + "/" + problema + "_GS_Alg" + x + "\")");
+            ps.println("datosAlg_hv" + x + "<-read.table(\"" + miDir.getCanonicalPath().replace("\\", "/") + "/data/" + problema + "/" + problema + "_HV_Alg" + x + "\")");
+            ps.println("datosAlg_epsilon" + x + "<-read.table(\"" + miDir.getCanonicalPath().replace("\\", "/") + "/data/" + problema + "/" + problema + "_Epsilon_Alg" + x + "\")");
         }
 
         //IGD
@@ -133,8 +134,8 @@ public class Estadisticos {
         ps.println("if(pvalueIGD<0.05){"); //<0.05
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
-                ps.println("pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
-                //ps.println("pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                //ps.println("pvalueIGD <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igd))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                ps.println("pvalueIGD <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igd))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueIGD,\"\\\\\\\\\")");
 
@@ -167,7 +168,8 @@ public class Estadisticos {
         ps.println("if(pvalueIGDplus<0.05){"); //<0.05
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
-                ps.println("pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                //ps.println("pvalueIGDplus <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_igdplus))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                ps.println("pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueIGDplus,\"\\\\\\\\\")");
 
@@ -200,6 +202,7 @@ public class Estadisticos {
         for (int x = 1; x <= AnalizadorMO.algoritmos; x++) {
             for (int j = x + 1; j <= AnalizadorMO.algoritmos; j++) {
                 ps.println("pvalueGS <- get.pvalues(posthoc.kruskal.nemenyi.test(Datos_gs))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
+                 ps.println("pvalueIGDplus <- get.pvalues(PMCMRplus::kwAllPairsNemenyiTest(Datos_igdplus))[\"" + String.valueOf(x) + "-" + String.valueOf(j) + "\"]");
                 if (x == AnalizadorMO.algoritmos - 1) {
                     ps.println("cadena <-paste(cadena,pvalueGS,\"\\\\\\\\\")");
 
