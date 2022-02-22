@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class AnalizadorMO {
+
     static ArrayList<ArrayList<ArrayList<double[]>>> datos;
     static ArrayList<ArrayList<ArrayList<double[]>>> datos_originales;
     static ArrayList<double[]> frente_real;
@@ -154,10 +155,29 @@ public class AnalizadorMO {
             ArrayList<Double> Epsilon_desvest = new ArrayList<>();
             ArrayList<Double> OS_mean = new ArrayList<>();
             ArrayList<Double> OS_desvest = new ArrayList<>();
+            
+            /* System.out.println("###########frentes eproximados#############");
+            for (int i = 0; i < datos_originales.size(); i++) {
+                System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Algortimo "+(i+1));
+                for (int j = 0; j < datos_originales.get(i).size(); j++) {
+                     System.out.println("   $$$$$$$$$$$$$$$$$$$$$ejecución "+(j+1));
+                    for (int k = 0; k < datos_originales.get(i).get(j).size(); k++) {
+                        System.out.println("["+k+"]   "+" "+Arrays.toString(datos_originales.get(i).get(j).get(k)));
+                    }
+                }
+                
+            }
+            
+             System.out.println("#######frente real######################");
+             for (int i = 0; i < frente_real.size(); i++) {
+                 System.out.println("["+i+"]   "+" "+Arrays.toString(frente_real.get(i)));
+   
+                
+            }
+            
+            System.out.println("#####################################");*/
 
             for (int x = 0; x < algoritmos; x++) {
-                 System.out.println("");
-                  System.out.println("");
                 ArrayList<Double> temp_igd = new ArrayList<>();
                 ArrayList<Double> temp_igd_plus = new ArrayList<>();
                 ArrayList<Double> temp_gs = new ArrayList<>();
@@ -181,11 +201,11 @@ public class AnalizadorMO {
 
                     valor = Epsilon.Compute_additive(frente_real, AnalizadorMO.datos.get(x).get(j));
                     //valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j));
-                    System.out.println("Epsilon " + valor);
+                    //System.out.println("Epsilon " + valor);
                     temp_epsilon.add(valor);
 
                     valor = IGDplus.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
-                    System.out.println("IGD+ " + valor);
+                    //System.out.println("IGD+ " + valor);
                     temp_igd_plus.add(valor);
 
                     valor = OverallSpread.Compute(AnalizadorMO.datos.get(x).get(j));
@@ -228,17 +248,22 @@ public class AnalizadorMO {
             }
             Estadisticos.Imprime_scripts_R(problema); //ESTADISTICOS POR PROBLEMA
 
-            System.out.println("Mediana IGD Plus");
+            System.out.println("Mediana IGD");
+            for (int x = 0; x < IGD_mean.size(); x++) {
+                System.out.print(IGD_mean.get(x) + " ");
+            }
+            System.out.println();
+            /*System.out.println("Mediana IGD Plus");
             for (int x = 0; x < IGD_plus_mean.size(); x++) {
                 System.out.print(IGD_plus_mean.get(x) + " ");
             }
-            System.out.println();
+            System.out.println();*/
             System.out.println("Mediana GS");
             for (int x = 0; x < GS_mean.size(); x++) {
                 System.out.print(GS_mean.get(x) + " ");
             }
             System.out.println();
-            System.out.println("Mediana HV");
+            /*System.out.println("Mediana HV");
             for (int x = 0; x < IGD_mean.size(); x++) {
                 System.out.print(HV_mean.get(x) + " ");
             }
@@ -247,7 +272,7 @@ public class AnalizadorMO {
             for (int x = 0; x < Epsilon_mean.size(); x++) {
                 System.out.print(Epsilon_mean.get(x) + " ");
             }
-            System.out.println();
+            System.out.println();*/
             System.out.println("Mediana OS");
             for (int x = 0; x < Epsilon_mean.size(); x++) {
                 System.out.print(OS_mean.get(x) + " ");
@@ -259,7 +284,6 @@ public class AnalizadorMO {
             Latex.printQualityIndicator_HV(HV_mean, HV_desvest);
             Latex.printQualityIndicator_Epsilon(Epsilon_mean, Epsilon_desvest);
             Latex.printQualityIndicator_OS(OS_mean, OS_desvest);
-
         }
 
         Latex.Termina_latex_IGD();
