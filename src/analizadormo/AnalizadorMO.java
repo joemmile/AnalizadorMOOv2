@@ -32,7 +32,7 @@ public class AnalizadorMO {
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         //algoritmos=Integer.valueOf(args[1]);
-        algoritmos = 2;
+        algoritmos = 3;
         //algoritmos = 5;
 
         /*nombres_algoritmos.add("Hybrid Q-Learning");
@@ -41,6 +41,7 @@ public class AnalizadorMO {
         nombres_algoritmos.add("DC-NSGA-II");
         nombres_algoritmos.add("Dif Evol");*/
         nombres_algoritmos.add("MOEAD_RSIM");
+        nombres_algoritmos.add("MOEAD_KLP");
         nombres_algoritmos.add("MOEAD");
 
         Latex.Inicializa_latex_igd();
