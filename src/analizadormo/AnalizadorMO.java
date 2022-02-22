@@ -155,6 +155,8 @@ public class AnalizadorMO {
             ArrayList<Double> OS_desvest = new ArrayList<>();
 
             for (int x = 0; x < algoritmos; x++) {
+                 System.out.println("");
+                  System.out.println("");
                 ArrayList<Double> temp_igd = new ArrayList<>();
                 ArrayList<Double> temp_igd_plus = new ArrayList<>();
                 ArrayList<Double> temp_gs = new ArrayList<>();
