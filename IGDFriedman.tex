@@ -15,21 +15,21 @@
 Algorithm&Ranking\\
 \hline
 MOEAD_RSIM&1.942063492063486\\
-MOEAD_KLP&1.9174603174603113\\
-MOEAD&2.1404761904761838\\
+MOEAD_KLP&1.919047619047613\\
+MOEAD&2.138888888888882\\
 \end{tabular}
 \end{table}
 
 
-Friedman statistic considering reduction performance (distributed according to chi-square with 2 degrees of freedom: 18.838888888841403.
+Friedman statistic considering reduction performance (distributed according to chi-square with 2 degrees of freedom: 18.396031745983734.
 
 
-P-value computed by Friedman Test: 8.113111349039581E-5.\newline
+P-value computed by Friedman Test: 1.0124009367151743E-4.\newline
 
-Iman and Davenport statistic considering reduction performance (distributed according to F-distribution with 2 and 1258 degrees of freedom: 9.547238472910859.
+Iman and Davenport statistic considering reduction performance (distributed according to F-distribution with 2 and 1258 degrees of freedom: 9.319480497871982.
 
 
-P-value computed by Iman and Daveport Test: 7.670778803145141E-5.\newline
+P-value computed by Iman and Daveport Test: 9.600458153969297E-5.\newline
 
 \begin{table}[!htp]
 \centering\tiny
@@ -37,8 +37,8 @@ P-value computed by Iman and Daveport Test: 7.670778803145141E-5.\newline
 \begin{tabular}{ccccc}
 $i$&algorithm&$z=(R_0 - R_i)/SE$&$p$&Holm/Hochberg/Hommel\\
 \hline
-2&MOEAD&3.9581390929785423&7.553596834857808E-5&0.025\\
-1&MOEAD_RSIM&0.4366630316097359&0.662355743311451&0.05\\
+2&MOEAD&3.9017954759966416&9.548181794435106E-5&0.025\\
+1&MOEAD_RSIM&0.4084912231187855&0.6829130729078946&0.05\\
 \hline
 \end{tabular}
 \end{table}
@@ -60,8 +60,8 @@ Hommel's procedure rejects those hypotheses that have a p-value $\le0.05$.
 \begin{tabular}{ccccc}
 $i$&algorithm&$z=(R_0 - R_i)/SE$&$p$&Holm/Hochberg/Hommel\\
 \hline
-2&MOEAD&3.9581390929785423&7.553596834857808E-5&0.05\\
-1&MOEAD_RSIM&0.4366630316097359&0.662355743311451&0.1\\
+2&MOEAD&3.9017954759966416&9.548181794435106E-5&0.05\\
+1&MOEAD_RSIM&0.4084912231187855&0.6829130729078946&0.1\\
 \hline
 \end{tabular}
 \end{table}
@@ -83,8 +83,8 @@ Hommel's procedure rejects those hypotheses that have a p-value $\le0.05$.
 \begin{tabular}{ccccccc}
 i&algorithm&unadjusted $p$&$p_{Bonf}$&$p_{Holm}$&$p_{Hoch}$&$p_{Homm}$\\
 \hline
-1&MOEAD&7.553596834857808E-5&1.5107193669715616E-4&1.5107193669715616E-4&1.5107193669715616E-4&1.5107193669715616E-4\\
-2&MOEAD_RSIM&0.662355743311451&1.324711486622902&0.662355743311451&0.662355743311451&0.662355743311451\\
+1&MOEAD&9.548181794435106E-5&1.9096363588870212E-4&1.9096363588870212E-4&1.9096363588870212E-4&1.9096363588870212E-4\\
+2&MOEAD_RSIM&0.6829130729078946&1.3658261458157892&0.6829130729078946&0.6829130729078946&0.6829130729078946\\
 \hline
 \end{tabular}
 \end{table}
@@ -95,9 +95,9 @@ i&algorithm&unadjusted $p$&$p_{Bonf}$&$p_{Holm}$&$p_{Hoch}$&$p_{Homm}$\\
 \begin{tabular}{cccccc}
 $i$&algorithms&$z=(R_0 - R_i)/SE$&$p$&Holm&Shaffer\\
 \hline
-3&MOEAD_KLP vs. MOEAD&3.9581390929785423&7.553596834857808E-5&0.016666666666666666&0.016666666666666666\\
-2&MOEAD_RSIM vs. MOEAD&3.5214760613688063&4.2915141322031957E-4&0.025&0.05\\
-1&MOEAD_RSIM vs. MOEAD_KLP&0.4366630316097359&0.662355743311451&0.05&0.05\\
+3&MOEAD_KLP vs. MOEAD&3.9017954759966416&9.548181794435106E-5&0.016666666666666666&0.016666666666666666\\
+2&MOEAD_RSIM vs. MOEAD&3.4933042528778557&4.7708260803030296E-4&0.025&0.05\\
+1&MOEAD_RSIM vs. MOEAD_KLP&0.4084912231187855&0.6829130729078946&0.05&0.05\\
 \hline
 \end{tabular}
 \end{table}
@@ -127,9 +127,9 @@ Bergmann's procedure rejects these hypotheses:
 \begin{tabular}{cccccc}
 $i$&algorithms&$z=(R_0 - R_i)/SE$&$p$&Holm&Shaffer\\
 \hline
-3&MOEAD_KLP vs. MOEAD&3.9581390929785423&7.553596834857808E-5&0.03333333333333333&0.03333333333333333\\
-2&MOEAD_RSIM vs. MOEAD&3.5214760613688063&4.2915141322031957E-4&0.05&0.1\\
-1&MOEAD_RSIM vs. MOEAD_KLP&0.4366630316097359&0.662355743311451&0.1&0.1\\
+3&MOEAD_KLP vs. MOEAD&3.9017954759966416&9.548181794435106E-5&0.03333333333333333&0.03333333333333333\\
+2&MOEAD_RSIM vs. MOEAD&3.4933042528778557&4.7708260803030296E-4&0.05&0.1\\
+1&MOEAD_RSIM vs. MOEAD_KLP&0.4084912231187855&0.6829130729078946&0.1&0.1\\
 \hline
 \end{tabular}
 \end{table}
@@ -159,9 +159,9 @@ Bergmann's procedure rejects these hypotheses:
 \begin{tabular}{cccccccc}
 i&hypothesis&unadjusted $p$&$p_{Neme}$&$p_{Holm}$&$p_{Shaf}$&$p_{Berg}$\\
 \hline
-1&MOEAD_KLP vs .MOEAD&7.553596834857808E-5&2.2660790504573425E-4&2.2660790504573425E-4&2.2660790504573425E-4&2.2660790504573425E-4\\
-2&MOEAD_RSIM vs .MOEAD&4.2915141322031957E-4&0.0012874542396609588&8.583028264406391E-4&4.2915141322031957E-4&4.2915141322031957E-4\\
-3&MOEAD_RSIM vs .MOEAD_KLP&0.662355743311451&1.987067229934353&0.662355743311451&0.662355743311451&0.662355743311451\\
+1&MOEAD_KLP vs .MOEAD&9.548181794435106E-5&2.864454538330532E-4&2.864454538330532E-4&2.864454538330532E-4&2.864454538330532E-4\\
+2&MOEAD_RSIM vs .MOEAD&4.7708260803030296E-4&0.0014312478240909089&9.541652160606059E-4&4.7708260803030296E-4&4.7708260803030296E-4\\
+3&MOEAD_RSIM vs .MOEAD_KLP&0.6829130729078946&2.048739218723684&0.6829130729078946&0.6829130729078946&0.6829130729078946\\
 \hline
 \end{tabular}
 \end{table}

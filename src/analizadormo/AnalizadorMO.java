@@ -58,6 +58,11 @@ public class AnalizadorMO {
             problema = st_names.nextToken();
             nombres_problemas.add(problema);
             System.out.println("Problema " + contador + " " + problema);
+            if(problema.contains("N05-DTLZ4")){
+            int i =0;
+            }
+            ;
+            
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
             StringTokenizer st = new StringTokenizer(bf.readLine());
@@ -195,7 +200,8 @@ public class AnalizadorMO {
                     System.out.println("GS " + valor);
                     temp_gs.add(valor);
 
-                    valor = HypervolumenWFG.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
+                    //valor = HypervolumenWFG.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
+                    valor = Hypervolumen.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
                     System.out.println("HV " + valor);
                     temp_hv.add(valor);
 
