@@ -56,9 +56,9 @@ public class AnalizadorMO {
             problema = st_names.nextToken();
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
-            /*if(problema.contains("N05-DTLZ4")){
+            if(problema.contains("N05-DTLZ4")){
             int i =0;
-            }*/         
+            }         
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
             StringTokenizer st = new StringTokenizer(bf.readLine());
@@ -173,7 +173,7 @@ public class AnalizadorMO {
                     temp_igd.add(valor);
 
                     valor = GeneralizedSpread.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
-                    System.out.print("GS " + valor+"\t");
+                    //System.out.print("GS " + valor+"\t");
                     temp_gs.add(valor);
 
                     //valor = HypervolumenWFG.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
@@ -239,11 +239,11 @@ public class AnalizadorMO {
                 System.out.print(IGD_plus_mean.get(x) + "\t\t");
             }
             System.out.println();
-            System.out.print("\tMediana GS ");
+           /* System.out.print("\tMediana GS ");
             for (int x = 0; x < GS_mean.size(); x++) {
                 System.out.print(GS_mean.get(x) + "\t\t");
             }
-            System.out.println();
+            System.out.println();*/
             System.out.print("\tMediana HV ");
             for (int x = 0; x < IGD_mean.size(); x++) {
                 System.out.print(HV_mean.get(x) + "\t\t");

@@ -68,7 +68,6 @@ public class GeneralizedSpread {
             }
             distancia_promedio += distancia_min;
             distancias_real_a_aproximado[x] = distancia_min;
-
         }
 
         distancia_promedio = (distancia_promedio / frente_real.size());
