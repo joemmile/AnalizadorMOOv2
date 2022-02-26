@@ -51,8 +51,7 @@ public class Hypervolumen {
                 }
                 tempVolume = front[0][0];
             } else {
-                tempVolume = CalculateHypervolume(front, noNondominatedPoints,
-                        noObjectives - 1);
+                tempVolume = CalculateHypervolume(front, noNondominatedPoints,noObjectives - 1);
             }
             tempDistance = SurfaceUnchangedTo(front, n, noObjectives - 1);
             volume += tempVolume * (tempDistance - distance);
