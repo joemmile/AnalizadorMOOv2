@@ -195,8 +195,8 @@ public class AnalizadorMO {
                     temp_hv.add(valor);
 
                     valor = 0;
-                    //valor = Epsilon.Compute_additive(frente_real, AnalizadorMO.datos.get(x).get(j));
-                    valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j)); //version de nombre original
+                    valor = Epsilon.Compute_additive(frente_real, AnalizadorMO.datos.get(x).get(j));
+                   //Valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j)); //version de nombre original
                     System.out.print("Epsilon " + valor + "\t");
                     temp_epsilon.add(valor);
 
