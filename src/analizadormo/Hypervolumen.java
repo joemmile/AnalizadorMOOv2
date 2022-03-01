@@ -44,7 +44,7 @@ public class Hypervolumen {
             double tempVolume, tempDistance;
 
             noNondominatedPoints = FilterNondominatedSet(front, n, noObjectives - 1);
-            tempVolume = 0;
+            //tempVolume = 0;
             if (noObjectives < 3) {
                 if (noNondominatedPoints < 1) {
                     System.out.println("run-time error");

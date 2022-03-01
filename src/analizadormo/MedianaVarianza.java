@@ -32,8 +32,18 @@ public class MedianaVarianza {
         if(valores.length%2==0)
         return valores[valores.length/2];
         else
-        return valores[valores.length/2+1];
+        return valores[valores.length/2+1];   
+    }
+    
+        public static double Media(ArrayList <Double> Indicador)
+    {
+        double valores=0.0;
+        double media=0.0;
+        for(int x=0;x<Indicador.size();x++)
+            valores+=Indicador.get(x);
+        media = valores/(double)Indicador.size();
         
+        return media;   
     }
     
     
