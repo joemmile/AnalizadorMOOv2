@@ -11,7 +11,6 @@ package analizadormo;
  */
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class AnalizadorMO {
@@ -35,11 +34,6 @@ public class AnalizadorMO {
         //algoritmos=Integer.valueOf(args[1]);
         algoritmos = 3;
 
-        /*nombres_algoritmos.add("Hybrid Q-Learning");
-        nombres_algoritmos.add("Hybrid Sarsa");
-        nombres_algoritmos.add("Hybrid Sarsa-Lambda");
-        nombres_algoritmos.add("DC-NSGA-II");
-        nombres_algoritmos.add("Dif Evol");*/
         nombres_algoritmos.add("MOEAD_RSIM");
         nombres_algoritmos.add("MOEAD_KLP");
         nombres_algoritmos.add("MOEAD");
@@ -58,7 +52,7 @@ public class AnalizadorMO {
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
             if (problema.contains("N05-DTLZ4")) {
-               // int i = 0;
+                int i = 0;
             }
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
@@ -138,10 +132,12 @@ public class AnalizadorMO {
 
             double maximos[] = new double[objetivos];
             double minimos[] = new double[objetivos];
+            double promedios[] = new double[objetivos];
             //saca los extremos
             MaxMin.extremos(maximos, minimos);
             //Normaliza todos los datos
-            MaxMin.normaliza(maximos, minimos);
+            //MaxMin.normaliza_maxmin(maximos, minimos);
+            MaxMin.normaliza_media(promedios);
 
             System.out.println("Frentes Filtrados y normalizados");
             //computa los indicadores de calidad para cada ejecución :S

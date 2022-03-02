@@ -49,7 +49,6 @@ public class MedianaVarianza {
     
     public static double IQR(ArrayList <Double> Indicador)
     {
-        
         double valores[]=new double[Indicador.size()];
         double Q1,Q3;
         
