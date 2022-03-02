@@ -52,7 +52,7 @@ public class AnalizadorMO {
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
             if (problema.contains("N05-DTLZ4")) {
-                int i = 0;
+                //int i = 0;
             }
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
@@ -132,12 +132,10 @@ public class AnalizadorMO {
 
             double maximos[] = new double[objetivos];
             double minimos[] = new double[objetivos];
-            double promedios[] = new double[objetivos];
             //saca los extremos
             MaxMin.extremos(maximos, minimos);
             //Normaliza todos los datos
-            //MaxMin.normaliza_maxmin(maximos, minimos);
-            MaxMin.normaliza_media(promedios);
+            MaxMin.normaliza(maximos, minimos);
 
             System.out.println("Frentes Filtrados y normalizados");
             //computa los indicadores de calidad para cada ejecución :S
@@ -207,37 +205,37 @@ public class AnalizadorMO {
                 }
 
                 IGD_mean.add(MedianaVarianza.Mediana(temp_igd));
-                IGD_avg.add(MedianaVarianza.Media(temp_igd));
+                //IGD_avg.add(MedianaVarianza.Media(temp_igd));
                 IGD_desvest.add(MedianaVarianza.IQR(temp_igd));
                 EscrituraArchivo.Escribe_Archivo(temp_igd, problema + "_IGD_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_igd, AnalizadorMO.datos_originales.get(x), "BEST_IGD_" + nombres_algoritmos.get(x));
 
                 IGD_plus_mean.add(MedianaVarianza.Mediana(temp_igd_plus));
-                IGD_plus_avg.add(MedianaVarianza.Media(temp_igd_plus));
+                //IGD_plus_avg.add(MedianaVarianza.Media(temp_igd_plus));
                 IGD_plus_desvest.add(MedianaVarianza.IQR(temp_igd_plus));
                 EscrituraArchivo.Escribe_Archivo(temp_igd_plus, problema + "_IGDPlus_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_igd_plus, AnalizadorMO.datos_originales.get(x), "BEST_IGDPlus_" + nombres_algoritmos.get(x));
 
                 GS_mean.add(MedianaVarianza.Mediana(temp_gs));
-                GS_avg.add(MedianaVarianza.Media(temp_gs));
+                //GS_avg.add(MedianaVarianza.Media(temp_gs));
                 GS_desvest.add(MedianaVarianza.IQR(temp_gs));
                 EscrituraArchivo.Escribe_Archivo(temp_gs, problema + "_GS_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_gs, AnalizadorMO.datos_originales.get(x), "BEST_GS_" + nombres_algoritmos.get(x));
 
                 HV_mean.add(MedianaVarianza.Mediana(temp_hv));
-                HV_avg.add(MedianaVarianza.Media(temp_hv));
+                //HV_avg.add(MedianaVarianza.Media(temp_hv));
                 HV_desvest.add(MedianaVarianza.IQR(temp_hv));
                 EscrituraArchivo.Escribe_Archivo(temp_hv, problema + "_HV_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MAX(temp_hv, AnalizadorMO.datos_originales.get(x), "BEST_HV_" + nombres_algoritmos.get(x));
 
                 OS_mean.add(MedianaVarianza.Mediana(temp_OS));
-                OS_avg.add(MedianaVarianza.Media(temp_OS));
+                //OS_avg.add(MedianaVarianza.Media(temp_OS));
                 OS_desvest.add(MedianaVarianza.IQR(temp_OS));
                 EscrituraArchivo.Escribe_Archivo(temp_OS, problema + "_OS_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MAX(temp_OS, AnalizadorMO.datos_originales.get(x), "BEST_OS_" + nombres_algoritmos.get(x));
 
                 Epsilon_mean.add(MedianaVarianza.Mediana(temp_epsilon));
-                Epsilon_avg.add(MedianaVarianza.Media(temp_epsilon));
+                //Epsilon_avg.add(MedianaVarianza.Media(temp_epsilon));
                 Epsilon_desvest.add(MedianaVarianza.IQR(temp_epsilon));
                 EscrituraArchivo.Escribe_Archivo(temp_epsilon, problema + "_Epsilon_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_epsilon, AnalizadorMO.datos_originales.get(x), "BEST_Epsilon_" + nombres_algoritmos.get(x));
