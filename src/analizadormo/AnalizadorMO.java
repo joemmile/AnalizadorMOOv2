@@ -58,7 +58,7 @@ public class AnalizadorMO {
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
             if (problema.contains("N05-DTLZ4")) {
-                int i = 0;
+               // int i = 0;
             }
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
@@ -281,12 +281,18 @@ public class AnalizadorMO {
             }
             System.out.println();
 
-            resultados.add(IGD_avg);
+            resultados.add(IGD_mean);
+            resultados.add(IGD_plus_mean);
+            resultados.add(GS_mean);
+            resultados.add(HV_mean);
+            resultados.add(Epsilon_mean);
+            resultados.add(OS_mean);
+            /*resultados.add(IGD_avg);
             resultados.add(IGD_plus_avg);
             resultados.add(GS_avg);
             resultados.add(HV_avg);
             resultados.add(Epsilon_avg);
-            resultados.add(OS_avg);
+            resultados.add(OS_avg);*/
             Latex.printQualityIndicator_IGD(IGD_mean, IGD_desvest);
             Latex.printQualityIndicator_IGD_plus(IGD_plus_mean, IGD_plus_desvest);
             Latex.printQualityIndicator_GS(GS_mean, GS_desvest);
