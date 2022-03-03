@@ -32,9 +32,10 @@ public class AnalizadorMO {
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         //algoritmos=Integer.valueOf(args[1]);
-        algoritmos = 3;
+        algoritmos = 4;
 
         nombres_algoritmos.add("MOEAD_RSIM");
+        nombres_algoritmos.add("MOEAD_RSIM_v2");
         nombres_algoritmos.add("MOEAD_KLP");
         nombres_algoritmos.add("MOEAD");
 
@@ -310,7 +311,7 @@ public class AnalizadorMO {
         Friedman.FriedmanTest_MIN("GS");
 
         System.out.println("#resultados-------------------#IGD-------------------#IGD+-------------------#GS-------------------#HV-------------------#EPS-------------------#OS-------------------");
-        System.out.println("--------------#RSIM--------------#KLP--------------#MOEAD--------------");
+        System.out.println("--------------#RSIM--------------#RSIM_V2--------------#KLP--------------#MOEAD--------------");
         int cuenta_barras =0;
         for (int i = 0; i < resultados.size(); i++) {
             for (int j = 0; j < resultados.get(i).size(); j++) {
