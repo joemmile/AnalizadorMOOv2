@@ -25,6 +25,7 @@ public class AnalizadorMO {
 
     public static void main(String[] args) throws IOException {
         ArrayList<ArrayList<Double>> resultados = new ArrayList();
+        ArrayList<ArrayList<Double>> resultados_IQR = new ArrayList();
         nombres_problemas = new ArrayList();
         nombres_algoritmos = new ArrayList();
         //FileReader fr_main=new FileReader(args[0]);
@@ -282,12 +283,12 @@ public class AnalizadorMO {
             resultados.add(HV_mean);
             resultados.add(Epsilon_mean);
             resultados.add(OS_mean);
-            /*resultados.add(IGD_avg);
-            resultados.add(IGD_plus_avg);
-            resultados.add(GS_avg);
-            resultados.add(HV_avg);
-            resultados.add(Epsilon_avg);
-            resultados.add(OS_avg);*/
+            resultados_IQR.add(IGD_desvest);
+            resultados_IQR.add(IGD_plus_desvest);
+            resultados_IQR.add(GS_desvest);
+            resultados_IQR.add(HV_desvest);
+            resultados_IQR.add(Epsilon_desvest);
+            resultados_IQR.add(OS_desvest);
             Latex.printQualityIndicator_IGD(IGD_mean, IGD_desvest);
             Latex.printQualityIndicator_IGD_plus(IGD_plus_mean, IGD_plus_desvest);
             Latex.printQualityIndicator_GS(GS_mean, GS_desvest);
@@ -316,6 +317,22 @@ public class AnalizadorMO {
         for (int i = 0; i < resultados.size(); i++) {
             for (int j = 0; j < resultados.get(i).size(); j++) {
                 System.out.print(resultados.get(i).get(j)+"\t");
+            }
+            cuenta_barras++;
+            
+            if(cuenta_barras ==6){
+                System.out.println("");
+                cuenta_barras=0;
+            } 
+        }
+        
+        
+                System.out.println("#resultados_IQR------------------");
+        System.out.println("--------------#RSIM--------------#RSIM_V2--------------#KLP--------------#MOEAD--------------");
+        cuenta_barras =0;
+        for (int i = 0; i < resultados_IQR.size(); i++) {
+            for (int j = 0; j < resultados_IQR.get(i).size(); j++) {
+                System.out.print(resultados_IQR.get(i).get(j)+"\t");
             }
             cuenta_barras++;
             
