@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * @author Alx
  */
 public class IGDplus {
-
     public static double Compute(ArrayList<double[]> frente_real, ArrayList<double[]> frente_aproximado) {
         //Calcula generational distance
         double distancia_min, distancia, distancia_total;
@@ -32,7 +31,6 @@ public class IGDplus {
                         {
                             distancia += Math.pow(frente_real.get(x)[w] - frente_aproximado.get(j)[w], 2);
                         }
-
                     }
                 }
                 if (distancia < distancia_min) {
@@ -42,7 +40,7 @@ public class IGDplus {
             distancia_total += distancia_min;
         }
 
-        distancia_total = (Math.sqrt(distancia_total) / frente_real.size());
+        distancia_total = Math.sqrt(distancia_total) / frente_real.size();
         return distancia_total;
     }
 

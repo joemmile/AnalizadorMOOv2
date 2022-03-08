@@ -11,6 +11,7 @@ package analizadormo;
  */
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class AnalizadorMO {
@@ -29,10 +30,10 @@ public class AnalizadorMO {
         nombres_problemas = new ArrayList();
         nombres_algoritmos = new ArrayList();
         //FileReader fr_main=new FileReader(args[0]);
-        FileReader fr_main = new FileReader("Prueba_RSIM.txt");
+        //FileReader fr_main = new FileReader("Prueba_RSIM.txt");
+        FileReader fr_main = new FileReader("Prueba_RSIM2.txt");
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
-        //algoritmos=Integer.valueOf(args[1]);
         algoritmos = 4;
 
         nombres_algoritmos.add("MOEAD_RSIM");
@@ -53,8 +54,8 @@ public class AnalizadorMO {
             problema = st_names.nextToken();
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
-            if (problema.contains("N05-DTLZ4")) {
-                //int i = 0;
+            if (problema.contains("N03-DTLZ4")) {
+                int i = 0;
             }
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
@@ -113,6 +114,7 @@ public class AnalizadorMO {
                     fr2.close();
                     datos_alg.add(frente_aproximado);
                 }
+
                 datos.add(datos_alg);
                 ArrayList<ArrayList<double[]>> datos_alg_copy = new ArrayList<>();
                 for (int x = 0; x < datos_alg.size(); x++)//copia de las iteraciones
@@ -139,28 +141,39 @@ public class AnalizadorMO {
             //Normaliza todos los datos
             MaxMin.normaliza(maximos, minimos);
 
+            for (int k = 0; k < datos.size(); k++) {
+                System.out.println("Algortimos "+ k);
+                for (int i = 0; i < datos.get(k).size(); i++) {
+                    for (int j = 0; j < datos.get(k).get(i).size(); j++) {
+                        System.out.print(i + "," + j + "(" + datos.get(k).get(i).size() + ")\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
+                    }
+                    System.out.println("");
+                }
+                System.out.println("");
+            }
+
             System.out.println("Frentes Filtrados y normalizados");
             //computa los indicadores de calidad para cada ejecución :S
             ArrayList<Double> IGD_mean = new ArrayList<>();
             ArrayList<Double> IGD_avg = new ArrayList<>();
             ArrayList<Double> IGD_desvest = new ArrayList<>();
-            
+
             ArrayList<Double> IGD_plus_mean = new ArrayList<>();
             ArrayList<Double> IGD_plus_avg = new ArrayList<>();
             ArrayList<Double> IGD_plus_desvest = new ArrayList<>();
-            
+
             ArrayList<Double> GS_mean = new ArrayList<>();
             ArrayList<Double> GS_avg = new ArrayList<>();
             ArrayList<Double> GS_desvest = new ArrayList<>();
-            
+
             ArrayList<Double> HV_mean = new ArrayList<>();
             ArrayList<Double> HV_avg = new ArrayList<>();
             ArrayList<Double> HV_desvest = new ArrayList<>();
-            
+
             ArrayList<Double> Epsilon_mean = new ArrayList<>();
             ArrayList<Double> Epsilon_avg = new ArrayList<>();
             ArrayList<Double> Epsilon_desvest = new ArrayList<>();
-            
+
             ArrayList<Double> OS_mean = new ArrayList<>();
             ArrayList<Double> OS_avg = new ArrayList<>();
             ArrayList<Double> OS_desvest = new ArrayList<>();
@@ -180,26 +193,26 @@ public class AnalizadorMO {
                     temp_igd.add(valor);
 
                     valor = 0;
+                    valor = IGDplus.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
+                    System.out.print("IGD+ " + valor + "\t");
+                    temp_igd_plus.add(valor);
+
+                    valor = 0;
                     valor = GeneralizedSpread.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
                     System.out.print("GS " + valor + "\t");
                     temp_gs.add(valor);
 
                     valor = 0;
                     //valor = HypervolumenWFG.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
-                    valor = Hypervolumen.Compute(AnalizadorMO.datos.get(x).get(j)); // Cambiar HVWFG por HV simple
+                    valor = Hypervolumen.Compute(AnalizadorMO.datos.get(x).get(j));
                     System.out.print("HV " + valor + "\t");
                     temp_hv.add(valor);
 
                     valor = 0;
                     valor = Epsilon.Compute_additive(frente_real, AnalizadorMO.datos.get(x).get(j));
-                   //Valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j)); //version de nombre original
+                    //Valor=Epsilon.epsilon_original(frente_real, AnalizadorMO.datos.get(x).get(j)); //version de nombre original
                     System.out.print("Epsilon " + valor + "\t");
                     temp_epsilon.add(valor);
-
-                    valor = 0;
-                    valor = IGDplus.Compute(frente_real, AnalizadorMO.datos.get(x).get(j));
-                    System.out.print("IGD+ " + valor + "\t");
-                    temp_igd_plus.add(valor);
 
                     valor = OverallSpread.Compute(AnalizadorMO.datos.get(x).get(j));
                     System.out.println("OS " + valor);
@@ -230,18 +243,17 @@ public class AnalizadorMO {
                 EscrituraArchivo.Escribe_Archivo(temp_hv, problema + "_HV_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MAX(temp_hv, AnalizadorMO.datos_originales.get(x), "BEST_HV_" + nombres_algoritmos.get(x));
 
-                OS_mean.add(MedianaVarianza.Mediana(temp_OS));
-                //OS_avg.add(MedianaVarianza.Media(temp_OS));
-                OS_desvest.add(MedianaVarianza.IQR(temp_OS));
-                EscrituraArchivo.Escribe_Archivo(temp_OS, problema + "_OS_Alg" + x);
-                EscrituraArchivo.Escribe_Best_FUN_MAX(temp_OS, AnalizadorMO.datos_originales.get(x), "BEST_OS_" + nombres_algoritmos.get(x));
-
                 Epsilon_mean.add(MedianaVarianza.Mediana(temp_epsilon));
                 //Epsilon_avg.add(MedianaVarianza.Media(temp_epsilon));
                 Epsilon_desvest.add(MedianaVarianza.IQR(temp_epsilon));
                 EscrituraArchivo.Escribe_Archivo(temp_epsilon, problema + "_Epsilon_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_epsilon, AnalizadorMO.datos_originales.get(x), "BEST_Epsilon_" + nombres_algoritmos.get(x));
 
+                OS_mean.add(MedianaVarianza.Mediana(temp_OS));
+                //OS_avg.add(MedianaVarianza.Media(temp_OS));
+                OS_desvest.add(MedianaVarianza.IQR(temp_OS));
+                EscrituraArchivo.Escribe_Archivo(temp_OS, problema + "_OS_Alg" + x);
+                EscrituraArchivo.Escribe_Best_FUN_MAX(temp_OS, AnalizadorMO.datos_originales.get(x), "BEST_OS_" + nombres_algoritmos.get(x));
             }
             Estadisticos.Imprime_scripts_R(problema); //ESTADISTICOS POR PROBLEMA
 
@@ -256,11 +268,11 @@ public class AnalizadorMO {
                 System.out.print(IGD_plus_mean.get(x) + "\t\t");
             }
             System.out.println();
-            /* System.out.print("\tMediana GS ");
+            System.out.print("\tMediana GS ");
             for (int x = 0; x < GS_mean.size(); x++) {
                 System.out.print(GS_mean.get(x) + "\t\t");
             }
-            System.out.println();*/
+            System.out.println();
             System.out.print("\tMediana HV ");
             for (int x = 0; x < HV_mean.size(); x++) {
                 System.out.print(HV_mean.get(x) + "\t\t");
@@ -313,33 +325,32 @@ public class AnalizadorMO {
 
         System.out.println("#resultados-------------------#IGD-------------------#IGD+-------------------#GS-------------------#HV-------------------#EPS-------------------#OS-------------------");
         System.out.println("--------------#RSIM--------------#RSIM_V2--------------#KLP--------------#MOEAD--------------");
-        int cuenta_barras =0;
+        int cuenta_barras = 0;
         for (int i = 0; i < resultados.size(); i++) {
             for (int j = 0; j < resultados.get(i).size(); j++) {
-                System.out.print(resultados.get(i).get(j)+"\t");
+                System.out.print(resultados.get(i).get(j) + "\t");
             }
             cuenta_barras++;
-            
-            if(cuenta_barras ==6){
+
+            if (cuenta_barras == 6) {
                 System.out.println("");
-                cuenta_barras=0;
-            } 
+                cuenta_barras = 0;
+            }
         }
-        
-        
-                System.out.println("#resultados_IQR------------------");
+
+        System.out.println("#resultados_IQR------------------");
         System.out.println("--------------#RSIM--------------#RSIM_V2--------------#KLP--------------#MOEAD--------------");
-        cuenta_barras =0;
+        cuenta_barras = 0;
         for (int i = 0; i < resultados_IQR.size(); i++) {
             for (int j = 0; j < resultados_IQR.get(i).size(); j++) {
-                System.out.print(resultados_IQR.get(i).get(j)+"\t");
+                System.out.print(resultados_IQR.get(i).get(j) + "\t");
             }
             cuenta_barras++;
-            
-            if(cuenta_barras ==6){
+
+            if (cuenta_barras == 6) {
                 System.out.println("");
-                cuenta_barras=0;
-            } 
+                cuenta_barras = 0;
+            }
         }
     }
 }
