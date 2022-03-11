@@ -7,7 +7,7 @@ package analizadormoo;
 
 /**
  *
- * @author Alx
+ * @author Alxs
  */
 import java.io.*;
 import java.util.ArrayList;
