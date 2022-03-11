@@ -31,8 +31,8 @@ public class AnalizadorMO {
         nombres_algoritmos = new ArrayList();
         //FileReader fr_main=new FileReader(args[0]);
         //FileReader fr_main = new FileReader("Prueba_RSIM.txt");
-        FileReader fr_main = new FileReader("Prueba.txt");
         //FileReader fr_main = new FileReader("Prueba_RSIM2.txt");
+        FileReader fr_main = new FileReader("Prueba.txt");
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         algoritmos = 4;
