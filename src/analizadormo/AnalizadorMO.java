@@ -31,7 +31,8 @@ public class AnalizadorMO {
         nombres_algoritmos = new ArrayList();
         //FileReader fr_main=new FileReader(args[0]);
         //FileReader fr_main = new FileReader("Prueba_RSIM.txt");
-        FileReader fr_main = new FileReader("Prueba_RSIM2.txt");
+        FileReader fr_main = new FileReader("Prueba.txt");
+        //FileReader fr_main = new FileReader("Prueba_RSIM2.txt");
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
         algoritmos = 4;
@@ -55,7 +56,7 @@ public class AnalizadorMO {
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
             if (problema.contains("N03-DTLZ4")) {
-                int i = 0;
+               // int i = 0;
             }
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
@@ -142,7 +143,18 @@ public class AnalizadorMO {
             MaxMin.normaliza(maximos, minimos);
 
             for (int k = 0; k < datos.size(); k++) {
-                System.out.println("Algortimos "+ k);
+                System.out.println("O Algortimos " + k);
+                for (int i = 0; i < datos_originales.get(k).size(); i++) {
+                    for (int j = 0; j < datos_originales.get(k).get(i).size(); j++) {
+                        System.out.print(i + "," + j + "(" + datos_originales.get(k).get(i).size() + ")\t" + Arrays.toString(datos_originales.get(k).get(i).get(j)) + "\t");
+                    }
+                    System.out.println("");
+                }
+                System.out.println("");
+            }
+
+            for (int k = 0; k < datos.size(); k++) {
+                System.out.println("N Algortimos " + k);
                 for (int i = 0; i < datos.get(k).size(); i++) {
                     for (int j = 0; j < datos.get(k).get(i).size(); j++) {
                         System.out.print(i + "," + j + "(" + datos.get(k).get(i).size() + ")\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
