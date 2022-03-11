@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package analizadormo;
+package analizadormoo;
 
-import static analizadormo.HypervolumenWFG.BEATS;
+import static analizadormoo.HypervolumenWFG.BEATS;
 import java.util.Comparator;
 
 /**
