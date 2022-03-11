@@ -29,13 +29,14 @@ public class AnalizadorMO {
         ArrayList<ArrayList<Double>> resultados_IQR = new ArrayList();
         nombres_problemas = new ArrayList();
         nombres_algoritmos = new ArrayList();
-        //FileReader fr_main=new FileReader(args[0]);
+        FileReader fr_main=new FileReader(args[0]);
         //FileReader fr_main = new FileReader("Prueba_RSIM.txt");
         //FileReader fr_main = new FileReader("Prueba_RSIM2.txt");
-        FileReader fr_main = new FileReader("Prueba.txt");
+        //FileReader fr_main = new FileReader("Prueba.txt");
         BufferedReader bf_main = new BufferedReader(fr_main);
         int contador = 0;
-        algoritmos = 4;
+        //algoritmos = 4;
+        algoritmos = Integer.parseInt(args[1]);
 
         nombres_algoritmos.add("MOEAD_RSIM");
         nombres_algoritmos.add("MOEAD_RSIM_v2");
