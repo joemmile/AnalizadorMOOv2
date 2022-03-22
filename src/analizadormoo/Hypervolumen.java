@@ -14,11 +14,11 @@ import java.util.ArrayList;
 public class Hypervolumen {
 
     public static double Compute(ArrayList<double[]> frente_aproximado) {
-        //primer paso invertir el frente aproximado
+        //primer paso invertir el frente aproximado        
         double[][] front = new double[frente_aproximado.size()][AnalizadorMO.objetivos];
         for (int x = 0; x < frente_aproximado.size(); x++) {
             for (int j = 0; j < AnalizadorMO.objetivos; j++) {
-                if (frente_aproximado.get(x)[j] <= 1.0 && frente_aproximado.get(x)[j] >= 0.0) {
+                if (frente_aproximado.get(x)[j] <= 1.0 && frente_aproximado.get(x)[j]>= 0.0) {
                     front[x][j] = 1.0 - frente_aproximado.get(x)[j];
                 } else if (frente_aproximado.get(x)[j] > 1.0) {
                     front[x][j] = 0.0;
@@ -42,7 +42,6 @@ public class Hypervolumen {
         while (n > 0) {
             int noNondominatedPoints;
             double tempVolume, tempDistance;
-
             noNondominatedPoints = FilterNondominatedSet(front, n, noObjectives - 1);
             //tempVolume = 0;
             if (noObjectives < 3) {

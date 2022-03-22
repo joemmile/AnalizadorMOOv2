@@ -56,8 +56,8 @@ public class AnalizadorMO {
             problema = st_names.nextToken();
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
-            if (problema.contains("N03-DTLZ4")) {
-               // int i = 0;
+            if (problema.contains("N03-DTLZ1")) {
+                // int i = 0;
             }
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
@@ -138,12 +138,28 @@ public class AnalizadorMO {
 
             double maximos[] = new double[objetivos];
             double minimos[] = new double[objetivos];
+           /* double maximos_d[] = new double[objetivos];
+            double minimos_d[] = new double[objetivos];
+            for (int k = 0; k < frente_real.size(); k++) {
+                System.out.print("Frente real " + k + "\t");
+                System.out.println(Arrays.toString(frente_real.get(k)));
+            }*/
+
             //saca los extremos
             MaxMin.extremos(maximos, minimos);
             //Normaliza todos los datos
             MaxMin.normaliza(maximos, minimos);
+            
+            System.out.println("MIN-MAX SIN NORMALIZAR");
+            /*System.out.println("Max " + Arrays.toString(maximos));
+            System.out.println("Min " + Arrays.toString(minimos));
+            
+            System.out.println("MIN-MAX datos NORMALIZADOS");
+            //System.out.println("Max " + Arrays.toString(maximos_d));
+            //System.out.println("Min " + Arrays.toString(minimos_d));
+            
 
-            for (int k = 0; k < datos.size(); k++) {
+             for (int k = 0; k < datos.size(); k++) {
                 System.out.println("O Algortimos " + k);
                 for (int i = 0; i < datos_originales.get(k).size(); i++) {
                     for (int j = 0; j < datos_originales.get(k).get(i).size(); j++) {
@@ -153,7 +169,7 @@ public class AnalizadorMO {
                 }
                 System.out.println("");
             }
-
+             */
             for (int k = 0; k < datos.size(); k++) {
                 System.out.println("N Algortimos " + k);
                 for (int i = 0; i < datos.get(k).size(); i++) {
