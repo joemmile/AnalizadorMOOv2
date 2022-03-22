@@ -171,10 +171,33 @@ public class AnalizadorMO {
                 System.out.println("");
             }
              */
+            for (int k = 0; k < datos_originales.size(); k++) {
+                for (int i = 0; i < datos_originales.get(k).size(); i++) {
+                    String url = "I0" + i + ".tsv";
+                    if(i>9)
+                      url = "I" + i + ".tsv";  
+                    FileWriter fichero = new FileWriter("C:/experiment/AnalizadorMetricas/NDS/ORI/" + problema +"/"+k + "/" + url);
+                    PrintWriter pw = new PrintWriter(fichero);
+                    for (int j = 0; j < datos_originales.get(k).get(i).size(); j++) {
+                        for (int l = 0; l < datos_originales.get(k).get(i).get(j).length; l++) {
+                            pw.print(datos_originales.get(k).get(i).get(j)[l]);
+                            if (l < datos_originales.get(k).get(i).get(j).length - 1) {
+                                pw.print("\t");
+                            } else {
+                                pw.print("\n");
+                            }
+                        }
+                    }
+                    fichero.close();
+                }
+            }
+
             for (int k = 0; k < datos.size(); k++) {
                 for (int i = 0; i < datos.get(k).size(); i++) {
-                    String url = "I" + i + ".tsv";
-                    FileWriter fichero = new FileWriter("NDS/" + problema + "/" + url);
+                    String url = "I0" + i + ".tsv";
+                    if(i>9)
+                      url = "I" + i + ".tsv";  
+                    FileWriter fichero = new FileWriter("C:/experiment/AnalizadorMetricas/NDS/NORM/" + problema +"/"+k + "/" + url);
                     PrintWriter pw = new PrintWriter(fichero);
                     for (int j = 0; j < datos.get(k).get(i).size(); j++) {
                         System.out.println(k + "," + i + "," + j + "\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
@@ -182,9 +205,8 @@ public class AnalizadorMO {
                             pw.print(datos.get(k).get(i).get(j)[l]);
                             if (l < datos.get(k).get(i).get(j).length - 1) {
                                 pw.print("\t");
-                            }
-                            else{
-                              pw.print("\n");  
+                            } else {
+                                pw.print("\n");
                             }
                         }
                         //pw.println(Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
