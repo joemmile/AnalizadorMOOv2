@@ -48,32 +48,6 @@ public class MaxMin {
             }
         }
     }
-
-   /* public static void extremos_DATOS(double maximos[], double minimos[]) {
-        for (int x = 0; x < AnalizadorMO.objetivos; x++) {
-            maximos[x] = Double.NEGATIVE_INFINITY;
-            minimos[x] = Double.POSITIVE_INFINITY;
-        }
-
-        for (int x = 0; x < AnalizadorMO.algoritmos; x++) {
-            for (int j = 0; j < AnalizadorMO.iteraciones; j++) {
-                for (int w = 0; w < AnalizadorMO.datos.get(x).get(j).size(); w++) {
-                    for (int z = 0; z < AnalizadorMO.objetivos; z++) {
-
-                        if (minimos[z] > AnalizadorMO.datos.get(x).get(j).get(w)[z]) {
-                            minimos[z] = AnalizadorMO.datos.get(x).get(j).get(w)[z];
-                        }
-
-                        if (maximos[z] < AnalizadorMO.datos.get(x).get(j).get(w)[z]) {
-                            maximos[z] = AnalizadorMO.datos.get(x).get(j).get(w)[z];
-                        }
-
-                    }
-                }
-            }
-        }
-    }*/
-
     public static void normaliza(double maximos[], double minimos[]) {
         //ahora tocaria normalizar con estos todos los datos LOOOL !!!
         //normaliza frente real

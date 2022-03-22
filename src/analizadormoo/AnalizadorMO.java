@@ -146,10 +146,9 @@ public class AnalizadorMO {
             }*/
 
             //saca los extremos
-            
             System.out.println("");
             MaxMin.extremos(maximos, minimos);
-            
+
             System.out.println("Max " + Arrays.toString(maximos));
             System.out.println("Min " + Arrays.toString(minimos));
             //Normaliza todos los datos
@@ -161,7 +160,7 @@ public class AnalizadorMO {
 
             //System.out.println("Max " + Arrays.toString(maximos_d));
             //System.out.println("Min " + Arrays.toString(minimos_d));
-           /* for (int k = 0; k < datos.size(); k++) {
+            /* for (int k = 0; k < datos.size(); k++) {
                 System.out.println("O Algortimos " + k);
                 for (int i = 0; i < datos_originales.get(k).size(); i++) {
                     for (int j = 0; j < datos_originales.get(k).get(i).size(); j++) {
@@ -171,16 +170,28 @@ public class AnalizadorMO {
                 }
                 System.out.println("");
             }
-              */
+             */
             for (int k = 0; k < datos.size(); k++) {
-                System.out.println("N Algortimos " + k);
                 for (int i = 0; i < datos.get(k).size(); i++) {
+                    String url = "I" + i + ".tsv";
+                    FileWriter fichero = new FileWriter("NDS/" + problema + "/" + url);
+                    PrintWriter pw = new PrintWriter(fichero);
                     for (int j = 0; j < datos.get(k).get(i).size(); j++) {
-                        System.out.print(i + "," + j + "(" + datos.get(k).get(i).size() + ")\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
+                        System.out.println(k + "," + i + "," + j + "\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
+                        for (int l = 0; l < datos.get(k).get(i).get(j).length; l++) {
+                            pw.print(datos.get(k).get(i).get(j)[l]);
+                            if (l < datos.get(k).get(i).get(j).length - 1) {
+                                pw.print("\t");
+                            }
+                            else{
+                              pw.print("\n");  
+                            }
+                        }
+                        //pw.println(Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
                     }
                     System.out.println("");
+                    fichero.close();
                 }
-                System.out.println("");
             }
 
             System.out.println("Frentes Filtrados y normalizados");
