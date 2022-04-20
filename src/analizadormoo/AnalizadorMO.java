@@ -341,7 +341,6 @@ public class AnalizadorMO {
             System.out.print("\tMediana IGD ");
             for (int x = 0; x < IGD_mean.size(); x++) {
                 System.out.print(IGD_mean.get(x) + "\t\t");
-                //System.out.print("#"+IGD_avg.get(x) + "\t\t");
             }
             System.out.println();
             System.out.print("\tMediana IGD Plus ");
@@ -369,13 +368,7 @@ public class AnalizadorMO {
                 System.out.print(OS_mean.get(x) + "\t\t");
             }
             System.out.println();
-            
-            
-            
-            
 
-            
-            
             
             resultados.add(IGD_mean);
             resultados.add(IGD_plus_mean);
