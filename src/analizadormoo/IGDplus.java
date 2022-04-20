@@ -33,6 +33,7 @@ public class IGDplus {
                         }
                     }
                 }
+                distancia = Math.sqrt(distancia);
                 if (distancia < distancia_min) {
                     distancia_min = distancia;
                 }
@@ -40,7 +41,7 @@ public class IGDplus {
             distancia_total += distancia_min;
         }
 
-        distancia_total = Math.sqrt(distancia_total) / frente_real.size();
+        distancia_total = distancia_total / frente_real.size();
         return distancia_total;
     }
 

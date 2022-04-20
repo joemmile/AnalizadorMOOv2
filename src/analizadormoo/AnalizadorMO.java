@@ -146,31 +146,35 @@ public class AnalizadorMO {
             }*/
 
             //saca los extremos
-            System.out.println("");
             MaxMin.extremos(maximos, minimos);
-
-            System.out.println("Max " + Arrays.toString(maximos));
-            System.out.println("Min " + Arrays.toString(minimos));
             //Normaliza todos los datos
             MaxMin.normaliza(maximos, minimos);
 
-            System.out.println("MIN-MAX SIN NORMALIZAR");
-            System.out.println("Max " + Arrays.toString(maximos));
-            System.out.println("Min " + Arrays.toString(minimos));
-
-            //System.out.println("Max " + Arrays.toString(maximos_d));
-            //System.out.println("Min " + Arrays.toString(minimos_d));
-            /* for (int k = 0; k < datos.size(); k++) {
+             for (int k = 0; k < datos.size(); k++) {
                 System.out.println("O Algortimos " + k);
-                for (int i = 0; i < datos_originales.get(k).size(); i++) {
-                    for (int j = 0; j < datos_originales.get(k).get(i).size(); j++) {
-                        System.out.print(i + "," + j + "(" + datos_originales.get(k).get(i).size() + ")\t" + Arrays.toString(datos_originales.get(k).get(i).get(j)) + "\t");
+                for (int i = 0; i < datos.get(k).size(); i++) {
+                    for (int j = 0; j < datos.get(k).get(i).size(); j++) {
+                        System.out.println(i + "," + j + "(" + datos.get(k).get(i).size() + ")\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
                     }
                     System.out.println("");
                 }
                 System.out.println("");
             }
-             */
+             
+             FileWriter real = new FileWriter("C:/experiment/AnalizadorMetricas/NDS/NORM/" + problema +"/RF"+problema+".tsv");
+             PrintWriter preal = new PrintWriter(real);
+             for (int j = 0; j < frente_real.size();j++) {
+                 for (int l = 0; l < frente_real.get(j).length; l++) {
+                     preal.print(frente_real.get(j)[l]);
+                     if (l < frente_real.get(j).length - 1) {
+                                preal.print("\t");
+                            } else {
+                                preal.print("\n");
+                            }
+                        }
+                    }
+             real.close();
+
             for (int k = 0; k < datos_originales.size(); k++) {
                 for (int i = 0; i < datos_originales.get(k).size(); i++) {
                     String url = "I0" + i + ".tsv";
@@ -200,7 +204,7 @@ public class AnalizadorMO {
                     FileWriter fichero = new FileWriter("C:/experiment/AnalizadorMetricas/NDS/NORM/" + problema +"/"+k + "/" + url);
                     PrintWriter pw = new PrintWriter(fichero);
                     for (int j = 0; j < datos.get(k).get(i).size(); j++) {
-                        System.out.println(k + "," + i + "," + j + "\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
+                        //System.out.println(k + "," + i + "," + j + "\t" + Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
                         for (int l = 0; l < datos.get(k).get(i).get(j).length; l++) {
                             pw.print(datos.get(k).get(i).get(j)[l]);
                             if (l < datos.get(k).get(i).get(j).length - 1) {
@@ -211,7 +215,7 @@ public class AnalizadorMO {
                         }
                         //pw.println(Arrays.toString(datos.get(k).get(i).get(j)) + "\t");
                     }
-                    System.out.println("");
+                    //System.out.println("");
                     fichero.close();
                 }
             }
@@ -241,6 +245,13 @@ public class AnalizadorMO {
             ArrayList<Double> OS_mean = new ArrayList<>();
             ArrayList<Double> OS_avg = new ArrayList<>();
             ArrayList<Double> OS_desvest = new ArrayList<>();
+            
+            ArrayList<ArrayList<Double>> igd_data = new ArrayList<>();
+            ArrayList<ArrayList<Double>> igdp_data = new ArrayList<>();
+            ArrayList<ArrayList<Double>> gs_data = new ArrayList<>();
+            ArrayList<ArrayList<Double>> hv_data = new ArrayList<>();
+            ArrayList<ArrayList<Double>> epsilon_data = new ArrayList<>();
+            ArrayList<ArrayList<Double>> os_data = new ArrayList<>();
 
             for (int x = 0; x < algoritmos; x++) {
                 ArrayList<Double> temp_igd = new ArrayList<>();
@@ -282,37 +293,42 @@ public class AnalizadorMO {
                     System.out.println("OS " + valor);
                     temp_OS.add(valor);
                 }
-
+                igd_data.add(temp_igd);
                 IGD_mean.add(MedianaVarianza.Mediana(temp_igd));
-                //IGD_avg.add(MedianaVarianza.Media(temp_igd));
+                IGD_avg.add(MedianaVarianza.Media(temp_igd));
                 IGD_desvest.add(MedianaVarianza.IQR(temp_igd));
                 EscrituraArchivo.Escribe_Archivo(temp_igd, problema + "_IGD_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_igd, AnalizadorMO.datos_originales.get(x), "BEST_IGD_" + nombres_algoritmos.get(x));
 
+                igdp_data.add(temp_igd_plus);
                 IGD_plus_mean.add(MedianaVarianza.Mediana(temp_igd_plus));
                 //IGD_plus_avg.add(MedianaVarianza.Media(temp_igd_plus));
                 IGD_plus_desvest.add(MedianaVarianza.IQR(temp_igd_plus));
                 EscrituraArchivo.Escribe_Archivo(temp_igd_plus, problema + "_IGDPlus_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_igd_plus, AnalizadorMO.datos_originales.get(x), "BEST_IGDPlus_" + nombres_algoritmos.get(x));
 
+                gs_data.add(temp_gs);
                 GS_mean.add(MedianaVarianza.Mediana(temp_gs));
                 //GS_avg.add(MedianaVarianza.Media(temp_gs));
                 GS_desvest.add(MedianaVarianza.IQR(temp_gs));
                 EscrituraArchivo.Escribe_Archivo(temp_gs, problema + "_GS_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_gs, AnalizadorMO.datos_originales.get(x), "BEST_GS_" + nombres_algoritmos.get(x));
 
+                hv_data.add(temp_hv);
                 HV_mean.add(MedianaVarianza.Mediana(temp_hv));
                 //HV_avg.add(MedianaVarianza.Media(temp_hv));
                 HV_desvest.add(MedianaVarianza.IQR(temp_hv));
                 EscrituraArchivo.Escribe_Archivo(temp_hv, problema + "_HV_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MAX(temp_hv, AnalizadorMO.datos_originales.get(x), "BEST_HV_" + nombres_algoritmos.get(x));
 
+                epsilon_data.add(temp_epsilon);
                 Epsilon_mean.add(MedianaVarianza.Mediana(temp_epsilon));
                 //Epsilon_avg.add(MedianaVarianza.Media(temp_epsilon));
                 Epsilon_desvest.add(MedianaVarianza.IQR(temp_epsilon));
                 EscrituraArchivo.Escribe_Archivo(temp_epsilon, problema + "_Epsilon_Alg" + x);
                 EscrituraArchivo.Escribe_Best_FUN_MIN(temp_epsilon, AnalizadorMO.datos_originales.get(x), "BEST_Epsilon_" + nombres_algoritmos.get(x));
 
+                os_data.add(temp_OS);
                 OS_mean.add(MedianaVarianza.Mediana(temp_OS));
                 //OS_avg.add(MedianaVarianza.Media(temp_OS));
                 OS_desvest.add(MedianaVarianza.IQR(temp_OS));
@@ -325,6 +341,7 @@ public class AnalizadorMO {
             System.out.print("\tMediana IGD ");
             for (int x = 0; x < IGD_mean.size(); x++) {
                 System.out.print(IGD_mean.get(x) + "\t\t");
+                //System.out.print("#"+IGD_avg.get(x) + "\t\t");
             }
             System.out.println();
             System.out.print("\tMediana IGD Plus ");
@@ -352,7 +369,14 @@ public class AnalizadorMO {
                 System.out.print(OS_mean.get(x) + "\t\t");
             }
             System.out.println();
+            
+            
+            
+            
 
+            
+            
+            
             resultados.add(IGD_mean);
             resultados.add(IGD_plus_mean);
             resultados.add(GS_mean);
