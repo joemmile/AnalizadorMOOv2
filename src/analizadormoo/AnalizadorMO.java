@@ -29,7 +29,7 @@ public class AnalizadorMO {
         ArrayList<ArrayList<Double>> resultados_IQR = new ArrayList();
         nombres_problemas = new ArrayList();
         nombres_algoritmos = new ArrayList();
-        //FileReader fr_main=new FileReader(args[0]);
+        //FileReader fr_main=new FileReader(args[0]);    
         FileReader fr_main = new FileReader("Prueba_RSIM.txt");
         //FileReader fr_main = new FileReader("Prueba_RSIM2.txt");
         //FileReader fr_main = new FileReader("Prueba.txt");
@@ -56,9 +56,9 @@ public class AnalizadorMO {
             problema = st_names.nextToken();
             nombres_problemas.add(problema);
             System.out.print("\nProblema " + contador + " " + problema);
-            if (problema.contains("N03-DTLZ1")) {
+            /*if (problema.contains("N03-DTLZ1")) {
                 // int i = 0;
-            }
+            }*/
             FileReader fr = new FileReader(st_names.nextToken());
             BufferedReader bf = new BufferedReader(fr);
             StringTokenizer st = new StringTokenizer(bf.readLine());
@@ -138,18 +138,17 @@ public class AnalizadorMO {
 
             double maximos[] = new double[objetivos];
             double minimos[] = new double[objetivos];
-            /* double maximos_d[] = new double[objetivos];
-            double minimos_d[] = new double[objetivos];
-            for (int k = 0; k < frente_real.size(); k++) {
-                System.out.print("Frente real " + k + "\t");
-                System.out.println(Arrays.toString(frente_real.get(k)));
-            }*/
-
+       
+            
             //saca los extremos
             MaxMin.extremos(maximos, minimos);
             //Normaliza todos los datos
             MaxMin.normaliza(maximos, minimos);
+            
+            System.out.println(Arrays.toString(minimos));
+             System.out.println(Arrays.toString(maximos));
 
+/*
              for (int k = 0; k < datos.size(); k++) {
                 System.out.println("O Algortimos " + k);
                 for (int i = 0; i < datos.get(k).size(); i++) {
@@ -159,7 +158,7 @@ public class AnalizadorMO {
                     System.out.println("");
                 }
                 System.out.println("");
-            }
+            }*/
              
              FileWriter real = new FileWriter("C:/experiment/AnalizadorMetricas/NDS/NORM/" + problema +"/RF"+problema+".tsv");
              PrintWriter preal = new PrintWriter(real);
@@ -369,7 +368,6 @@ public class AnalizadorMO {
             }
             System.out.println();
 
-            
             resultados.add(IGD_mean);
             resultados.add(IGD_plus_mean);
             resultados.add(GS_mean);
@@ -404,7 +402,7 @@ public class AnalizadorMO {
         Friedman.FriedmanTest_MAX("OS");
         Friedman.FriedmanTest_MIN("GS");
 
-        System.out.println("#resultados-------------------#IGD-------------------#IGD+-------------------#GS-------------------#HV-------------------#EPS-------------------#OS-------------------");
+        System.out.println("#resultados media-------------------#IGD-------------------#IGD+-------------------#GS-------------------#HV-------------------#EPS-------------------#OS-------------------");
         System.out.println("--------------#RSIM--------------#RSIM_V2--------------#KLP--------------#MOEAD--------------");
         int cuenta_barras = 0;
         for (int i = 0; i < resultados.size(); i++) {
